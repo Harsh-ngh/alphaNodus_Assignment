@@ -5,7 +5,8 @@ import cors from "cors";
 import addJobsRoute from './routes/addJobsRouter.js';
 import testRoute from "./routes/testDBConnectionRouter.js";
 import getJobsRoute from "./routes/getJobsRouter.js";  
-
+import signupJobSeekerRoute from "./routes/signupJobSeekerRouter.js";
+import loginJobSeekerRoute from "./routes/loginJobSeekerRouter.js";
 dotenv.config();
 
 const app = express();
@@ -28,7 +29,9 @@ app.get("/", (req, res) => {
 // routes
 app.use("/alphanodus", addJobsRoute);
 app.use("/alphanodus", testRoute);
-app.use("/alphanodus", getJobsRoute);    
+app.use("/alphanodus", getJobsRoute);
+app.use("/alphanodus", signupJobSeekerRoute);
+app.use("/alphanodus", loginJobSeekerRoute);    
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
