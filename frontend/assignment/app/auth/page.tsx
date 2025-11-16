@@ -10,7 +10,7 @@ export default function RoleSelect() {
       <h2 style={styles.title}>Select Role</h2>
 
       <div style={styles.cardContainer}>
-        <div style={styles.card} onClick={() => router.push("/auth/jobseeker")}>
+        <div style={styles.card} onClick={() => router.push("/auth/jobSeeker")}>
           <h3 style={styles.cardTitle}>Job Seeker</h3>
         </div>
 

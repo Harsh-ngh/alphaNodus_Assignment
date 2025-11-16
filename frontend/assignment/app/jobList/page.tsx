@@ -10,7 +10,7 @@ function JobList() {
   async function fetchJobs() {
     try {
       const res = await axios.get("http://localhost:5000/alphanodus/jobs");
-      setJobs(res.data); // or res.data.jobs depending on backend
+      setJobs(res.data);
     } catch (error) {
       console.error("Error fetching jobs:", error);
     }
@@ -21,11 +21,26 @@ function JobList() {
   }, []);
 
   return (
-    <>
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        gap: "20px",
+        justifyContent: "center",
+      }}
+    >
       {jobs.map((job) => (
-        <JobCard key={job.id} job={job} />
+        <div
+          key={job.id}
+          style={{
+            flex: "0 0 30%", 
+            minWidth: "280px", 
+          }}
+        >
+          <JobCard job={job} />
+        </div>
       ))}
-    </>
+    </div>
   );
 }
 

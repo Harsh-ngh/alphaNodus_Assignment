@@ -7,12 +7,12 @@ export default function JobSeekerAuth() {
   const router = useRouter();
   const [mode, setMode] = useState<"login" | "signup">("login");
 
-  //const [name, setName] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const API_BASE = "http://localhost:5000/api/auth";
+  const API_BASE = "http://localhost:5000/alphanodus";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,7 +42,7 @@ export default function JobSeekerAuth() {
 
       alert(`${mode === "login" ? "Login" : "Signup"} Successful!`);
 
-      router.push("/jobs");
+      router.push("/jobList");
     } catch (err) {
       setError("Network Error");
     }
@@ -70,17 +70,17 @@ export default function JobSeekerAuth() {
       </div>
 
       <form style={styles.form} onSubmit={handleSubmit}>
-        {/* {mode === "signup" && (
-        //   <input
-        //     type="text"
-        //     placeholder="Full Name"
-        //     value={name}
-        //     minLength={2}
-        //     maxLength={32}
-        //     onChange={(e) => setName(e.target.value)}
-        //     style={styles.input}
-        //   />
-        )} */}
+        {mode === "signup" && (
+          <input
+            type="text"
+            placeholder="Full Name"
+            value={name}
+            minLength={2}
+            maxLength={32}
+            onChange={(e) => setName(e.target.value)}
+            style={styles.input}
+          />
+        )}
 
         <input
           type="email"

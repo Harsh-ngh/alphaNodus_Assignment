@@ -72,7 +72,7 @@ const styles = {
   },
   button: {
     padding: "10px",
-    background: "#111",
+    background: "#1db8d4ff",
     color: "white",
     borderRadius: "5px",
     border: "none",
