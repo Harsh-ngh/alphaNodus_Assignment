@@ -7,6 +7,8 @@ import testRoute from "./routes/testDBConnectionRouter.js";
 import getJobsRoute from "./routes/getJobsRouter.js";  
 import signupJobSeekerRoute from "./routes/signupJobSeekerRouter.js";
 import loginJobSeekerRoute from "./routes/loginJobSeekerRouter.js";
+import applyJobRoute from "./routes/applyJobRouter.js";
+import viewApplicationsRouter from "./routes/viewJobsRouter.js";
 dotenv.config();
 
 const app = express();
@@ -16,11 +18,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
-
 const PORT = process.env.PORT || 5000;
-
-
 
 app.get("/", (req, res) => {
   res.send("Hello from AlphaNodus Backend!");
@@ -31,7 +29,9 @@ app.use("/alphanodus", addJobsRoute);
 app.use("/alphanodus", testRoute);
 app.use("/alphanodus", getJobsRoute);
 app.use("/alphanodus", signupJobSeekerRoute);
-app.use("/alphanodus", loginJobSeekerRoute);    
+app.use("/alphanodus", loginJobSeekerRoute); 
+app.use("/alphanodus", applyJobRoute);
+app.use("/alphanodus", viewApplicationsRouter);   
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

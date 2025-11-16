@@ -5,7 +5,7 @@ import db from "../db.js";
 
 const router = express.Router();
 
-// Job Seeker Login
+
 router.post("/loginJobSeeker", async (req, res) => {
   const { email, password } = req.body;
 
@@ -14,7 +14,7 @@ router.post("/loginJobSeeker", async (req, res) => {
   }
 
   try {
-    // Check if user exists
+   
     const [rows] = await db.query(
       "SELECT * FROM job_seekers WHERE email = ?",
       [email]
@@ -26,14 +26,14 @@ router.post("/loginJobSeeker", async (req, res) => {
 
     const user = rows[0];
 
-    // Compare password
+    
     const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch) {
       return res.status(400).json({ message: "Invalid email or password" });
     }
 
-    // Generate JWT token
+  
     const token = jwt.sign(
       {
         id: user.id,
