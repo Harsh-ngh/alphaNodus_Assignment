@@ -91,5 +91,7 @@ export default db;
 ............................................................................
 4. nodemon index.js
 
+Note- .env in backend has been commited to get the JWT secret key.
+
 
 
